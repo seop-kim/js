@@ -110,3 +110,10 @@ function getUpperString(str) {
 
 console.log(getUpperString('hello, world!'));
 
+
+function getLowerString(str) {
+    return str.toLowerCase();
+}
+
+console.log(getLowerString('HELLO, WORLD!'));
+// ==============================================
