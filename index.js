@@ -31,11 +31,82 @@ function sum(a, b) {
 // console.log(sum(3, 5));
 
 
-const SALUTATION = 'Hello, world!';
-let person = '철수';
+// ==============================================
+// const SALUTATION = 'Hello, world!';
+// let person = '철수';
 
-console.log(SALUTATION);
-console.log(person);
+// console.log(SALUTATION);
+// console.log(person);
+// ==============================================
 
-let x = 1;
-console.log(x);
+
+// ==============================================
+// let x = 1;
+// console.log(x);
+// ==============================================
+
+
+// ==============================================
+// let a =1, b = 2, c = 3;
+// const X = 10, Y = 20, Z = 30;
+
+// console.log(a, b, c);
+// console.log(X, Y, Z);
+// ==============================================
+
+
+// ==============================================
+// 명명규칙
+// JS는 카멜 케이스(camelCase)를 사용한다.
+// ==============================================
+
+
+// ==============================================
+// var 는 중복 선언이 가능하지만 let은 중복 선언이 불가능하다.
+// 그렇기에 var보다는 let을 사용하는 것이 좋다.
+// var a = 1;
+// var a = 2;
+// let x = 1;
+// ==============================================
+
+
+// ==============================================
+// 자바스크립트의 원시자료형
+// const a = true;
+// const b = 1;
+// const c = 'Hello, world!';
+// const d = null;
+// const e = undefined;
+// const f = Symbol('symbol');
+// const g = BigInt(1);
+// const h = NaN;
+// const i = Infinity;
+// const j = -Infinity;
+// const k = 0 / 0;
+// const l = 1 / 0;
+// const m = -1 / 0;
+
+
+// console.log(a , ' ' , typeof a);
+// console.log(b , ' ' , typeof b);
+// console.log(c , ' ' , typeof c);
+// console.log(d , ' ' , typeof d);
+// console.log(e , ' ' , typeof e);
+// console.log(f , ' ' , typeof f);
+// console.log(g , ' ' , typeof g);
+// console.log(h , ' ' , typeof h);
+// console.log(i , ' ' , typeof i);
+// console.log(j , ' ' , typeof j);
+// console.log(k , ' ' , typeof k);
+// console.log(l , ' ' , typeof l);
+// console.log(m , ' ' , typeof m);
+// ==============================================
+
+
+// ==============================================
+function getUpperString(str) {
+    return str.toUpperCase();
+}
+
+console.log(getUpperString('hello, world!'));
+
