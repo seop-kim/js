@@ -104,16 +104,51 @@ function sum(a, b) {
 
 
 // ==============================================
-function getUpperString(str) {
-    return str.toUpperCase();
-}
+// function getUpperString(str) {
+//     return str.toUpperCase();
+// }
 
-console.log(getUpperString('hello, world!'));
+// console.log(getUpperString('hello, world!'));
 
 
-function getLowerString(str) {
-    return str.toLowerCase();
-}
+// function getLowerString(str) {
+//     return str.toLowerCase();
+// }
 
-console.log(getLowerString('HELLO, WORLD!'));
+// console.log(getLowerString('HELLO, WORLD!'));
+// ==============================================
+
+
+// ==============================================
+// let word = '안녕하세요!';
+// console.log(word);
+
+// let word2 = '작은 따옴표 안에 "큰 따옴표"';
+// console.log(word2);
+
+// let word3 = "큰 따옴표 안에 '작은 따옴표'";
+// console.log(word3);
+
+// let word4 = '작은 따옴표 안에 \'작은 따옴표\'';
+// console.log(word4);
+
+// let word5 = "큰 따옴표 안에 \"큰 따옴표\"";
+// console.log(word5);
+
+// let word6 = `백틱 안에 '작은 따옴표'와 "큰 따옴표" 모두 사용 가능`;
+// console.log(word6);
+
+// let word7 = `백틱 안에 줄바꿈도 가능
+// 줄바꿈`;
+// console.log(word7);
+
+// let word8 = '작은 따옴표 안에 \'작은 따옴표\' 그리고 "큰 따옴표"';
+// console.log(word8);
+
+// 템플릿 리터럴
+let a = 1;
+let b = 2;
+console.log(`${a} + ${b} = ${a + b}`);
+
+
 // ==============================================
