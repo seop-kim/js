@@ -146,9 +146,27 @@ function sum(a, b) {
 // console.log(word8);
 
 // 템플릿 리터럴
-let a = 1;
-let b = 2;
-console.log(`${a} + ${b} = ${a + b}`);
+// let a = 1;
+// let b = 2;
+// console.log(`${a} + ${b} = ${a + b}`);
 
+
+// let numA = 1;
+// let strA = '1';
+
+// console.log(numA + strA);
+// console.log(numA == strA); // 값만 비교
+// console.log(numA === strA); // 값과 타입 비교
+
+// console.log(numA != strA); // 값만 비교
+// console.log(numA !== strA); // 값과 타입 비교
+// ==============================================
+
+
+// ==============================================
+let str = 'hello';
+let str2 = ' ' + 'world';
+
+console.log(str + str2);
 
 // ==============================================
