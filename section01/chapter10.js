@@ -1,3 +1,1 @@
-for (let i = 0; i < 10; i++) {
- console.log(i);
-}
+Array.from({ length: 10 }, (_, i) => i).forEach(console.log);
