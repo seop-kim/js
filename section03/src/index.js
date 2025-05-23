@@ -21,10 +21,14 @@
 // console.log(sub(1, 2));
 // console.log(mul(2, 3));
 
-import randomColor from 'randomcolor';
+// import randomColor from 'randomcolor';
+//
+// const color = randomColor();
+// console.log(color);
 
-const color = randomColor();
-console.log(color);
-
+// Critical Rendering Path: 브라우저의 렌더링 과정
+// HTML -> DOM
+// CSS -> CSSOM: CSS Object model
+// 렌더과정: Render Tree > Layout > Painting
 
 
