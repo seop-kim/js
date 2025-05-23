@@ -10,14 +10,21 @@
  console.log(sub(1,2));
  */
 
+
 // ES Module
 // 확장자 명시 필요
 // import mul from './math.js';
 // 같은 모듈에서 가져오는거라면 아래와 같이 선언 가능
-import mul, {add, sub} from './math.js';
+// import mul, {add, sub} from './math.js';
+//
+// console.log(add(1, 2));
+// console.log(sub(1, 2));
+// console.log(mul(2, 3));
 
-console.log(add(1, 2));
-console.log(sub(1, 2));
+import randomColor from 'randomcolor';
 
-console.log(mul(2, 3));
+const color = randomColor();
+console.log(color);
+
+
 
