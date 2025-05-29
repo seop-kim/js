@@ -135,3 +135,5 @@ sketch
 *.xml
 section03/package-lock.json
 section06/package-lock.json
+section08/package-lock.json
+package-lock.json
