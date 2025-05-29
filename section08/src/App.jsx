@@ -34,6 +34,7 @@ function App() {
   const [todos, setTodos] = useState(mockData);
   const idRef = useRef(3);
 
+  // todo 생성 리스너
   const onCreate = (content) => {
     const newTodo = {
       id: idRef.current++,
@@ -45,9 +46,16 @@ function App() {
     setTodos([...todos, newTodo]);
   };
 
+  // todo checkbox 수정 리스너
   const onUpdate = (targetId) => {
     // todos state 값 중 id와 일치하는 아이템의 isDone 변경
     setTodos(todos.map((todo) => todo.id === targetId ? {...todo, isDone: !todo.isDone} : todo));
+  };
+
+  // todo 삭제 리스너
+  const onDelete = (targetId) => {
+    // 인수 : todos 배열에서 targetId 가 일치하는 id 만 삭제한 새로운 배열
+    setTodos(todos.filter((todo) => todo.id !== targetId));
   };
 
   return (
@@ -55,7 +63,8 @@ function App() {
         <Header/>
         <Editor onCreate={onCreate}/>
         <List todos={todos}
-              onUpdate={onUpdate}/>
+              onUpdate={onUpdate}
+              onDelete={onDelete}/>
       </div>
   )
 }

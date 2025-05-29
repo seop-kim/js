@@ -8,12 +8,17 @@ import './List.css'
 import TodoItem from "./TodoItem.jsx";
 
 
-const List = ({todos, onUpdate}) => {
+const List = (
+    {
+      todos,
+      onUpdate,
+      onDelete
+    }) => {
   const [search, setSearch] = useState('');
 
   const onChangeSearch = (e) => {
     setSearch(e.target.value);
-  }
+  };
 
   const getFilteredData = () => {
     if (search === '') {
@@ -39,7 +44,8 @@ const List = ({todos, onUpdate}) => {
             return (
                 <TodoItem key={todo.id}
                           {...todo}
-                          onUpdate={onUpdate}/>
+                          onUpdate={onUpdate}
+                          onDelete={onDelete}/>
             )
           })}
         </div>
