@@ -1,5 +1,5 @@
 // React
-import {Link, Route, Routes} from 'react-router-dom'
+import {Link, Route, Routes, useNavigate} from 'react-router-dom'
 
 // Component
 import Home from "./pages/Home";
@@ -14,6 +14,11 @@ import './App.css'
 // 2. 새로운 일기를 생성하는 /New
 // 3. 일기를 상세 조회하는 /Diary
 function App() {
+  const nav = useNavigate();
+  const onClickButton = () => {
+    nav('/new')
+  };
+
   return (
       <>
         <div>
@@ -21,6 +26,7 @@ function App() {
           <Link to='/new'>New</Link>
           <Link to='/diary'>Diary</Link>
         </div>
+        <button onClick={onClickButton}>New 페이지로 이동</button>
         <Routes>
           <Route path='/' element={<Home/>}></Route>
           <Route path='/new' element={<New/>}></Route>
