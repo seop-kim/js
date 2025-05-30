@@ -4,7 +4,7 @@
 }
 
 html, body {
-    margin: 0px;
+    margin: 0;
     width: 100%;
     background-color: rgb(246, 246, 246);
 }
@@ -17,6 +17,7 @@ html, body {
     height: 100%;
     margin: 0 auto;
     box-shadow: rgba(100, 100, 100, 0.2) 0 0 29px 0;
+    padding: 0 20px;
 }
 
 body * {
