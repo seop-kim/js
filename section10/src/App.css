@@ -1,0 +1,9 @@
+.App {
+    /*중앙 정렬*/
+    width: 500px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
