@@ -2,7 +2,7 @@
 import {useContext, useMemo, useState} from 'react'
 
 // Context
-import {TodoContext} from '../App';
+import {TodoStateContext} from '../App';
 
 // CSS
 import './List.css'
@@ -12,7 +12,7 @@ import TodoItem from "./TodoItem.jsx";
 
 
 const List = () => {
-  const {todos} = useContext(TodoContext);
+  const todos = useContext(TodoStateContext);
   const [search, setSearch] = useState('');
 
   const onChangeSearch = (e) => {
