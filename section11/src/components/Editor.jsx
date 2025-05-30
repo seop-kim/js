@@ -1,10 +1,14 @@
 // React
-import {useRef, useState} from 'react'
+import {useContext, useRef, useState} from 'react'
+
+// Context
+import {TodoContext} from '../App';
 
 // CSS
 import './Editor.css'
 
-const Editor = ({onCreate}) => {
+const Editor = () => {
+  const {onCreate} = useContext(TodoContext);
   const [content, setContent] = useState('');
   const contentRef = useRef(null);
 
