@@ -1,5 +1,5 @@
 // React
-import {useState} from 'react'
+import {useMemo, useState} from 'react'
 
 // CSS
 import './List.css'
@@ -33,9 +33,28 @@ const List = (
   // 검색 필터 데이터
   const filteredTodos = getFilteredData();
 
+  const {totalCount, doneCount, notDoneCount} = useMemo(() => {
+    console.log('sea');
+    const totalCount = todos.length;
+    const doneCount = todos.filter((todo) => todo.isDone).length;
+    const notDoneCount = totalCount - doneCount;
+
+    return {
+      totalCount,
+      doneCount,
+      notDoneCount,
+    }
+  }, [todos]);
+
+
   return (
       <div className='List'>
         <h4>Todo List 🌱</h4>
+        <div>
+          <div>totalCount : {totalCount}</div>
+          <div>doneCount : {doneCount}</div>
+          <div>notDoneCount : {notDoneCount}</div>
+        </div>
         <input placeholder={'검색어를 입력하세요'}
                value={search}
                onChange={onChangeSearch}/>
