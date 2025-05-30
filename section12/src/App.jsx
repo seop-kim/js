@@ -1,6 +1,6 @@
 // React
 import {Route, Routes} from 'react-router-dom'
-import {useReducer, useRef} from 'react'
+import {createContext, useMemo, useReducer, useRef} from 'react'
 
 // Pages
 import Home from "./pages/Home";
@@ -40,24 +40,74 @@ const mockData = [
 ]
 
 function reducer(state, action) {
+  if (action.type === 'CREATE') return [...state, action.data];
+  if (action.type === 'UPDATE') return state.map((item) => Number(item.id) === Number(action.data.id) ? action.data : item);
+  if (action.type === 'DELETE') return state.filter((item) => Number(item.id) !== Number(action.data.id));
   return state;
 }
 
+const DiaryStateContext = createContext();
+const DiaryDispatchContext = createContext();
+
 function App() {
   const [data, dispatch] = useReducer(reducer, mockData);
-  const refId = useRef(4);
+  const idRef = useRef(4);
+
+  // TODO : create
+  const onCreate = (createDate, emotionId, content) => {
+    dispatch({
+      type: 'CREATE',
+      data: {
+        id: idRef.current,
+        createdData: createDate,
+        emotionId: emotionId,
+        content: content,
+      },
+    });
+  };
+
+  // TODO : update
+  const onUpdate = (id, createDate, emotionId, content) => {
+    dispatch({
+      type: 'UPDATE',
+      id: {
+        id: id,
+        createdData: createDate,
+        emotionId: emotionId,
+        content: content,
+      },
+    });
+  };
+
+  // TODO : delete
+  const onDelete = (id) => {
+    dispatch({
+      type: 'DELETE',
+      data: {
+        id: id
+      },
+    });
+  };
+
+  const memoizedDispatch = useMemo(() => {
+    return {onCreate, onUpdate, onDelete};
+  }, [onCreate, onDelete, onUpdate]);
 
   return (
       <>
-        <Routes>
-          <Route path='/' element={<Home/>}></Route>
-          <Route path='/new' element={<New/>}></Route>
-          <Route path='/diary/:id' element={<Diary/>}></Route>
-          <Route path='/edit/:id' element={<Edit/>}></Route>
-          <Route path='*' element={<Notfound/>}></Route>
-        </Routes>
+        <DiaryStateContext.Provider value={data}>
+          <DiaryDispatchContext.Provider value={memoizedDispatch}>
+            <Routes>
+              <Route path='/' element={<Home/>}></Route>
+              <Route path='/new' element={<New/>}></Route>
+              <Route path='/diary/:id' element={<Diary/>}></Route>
+              <Route path='/edit/:id' element={<Edit/>}></Route>
+              <Route path='*' element={<Notfound/>}></Route>
+            </Routes>
+          </DiaryDispatchContext.Provider>
+        </DiaryStateContext.Provider>
       </>
-  )
+  );
 }
 
 export default App
