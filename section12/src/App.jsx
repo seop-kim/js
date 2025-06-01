@@ -53,7 +53,7 @@ function App() {
   const [data, dispatch] = useReducer(reducer, mockData);
   const idRef = useRef(4);
 
-  // TODO : create
+  // func create
   const onCreate = (createDate, emotionId, content) => {
     dispatch({
       type: 'CREATE',
@@ -66,7 +66,7 @@ function App() {
     });
   };
 
-  // TODO : update
+  // func update
   const onUpdate = (id, createDate, emotionId, content) => {
     dispatch({
       type: 'UPDATE',
@@ -79,7 +79,7 @@ function App() {
     });
   };
 
-  // TODO : delete
+  // func delete
   const onDelete = (id) => {
     dispatch({
       type: 'DELETE',
