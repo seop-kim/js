@@ -47,6 +47,7 @@ const Home = () => {
   const onDecreaseMonth = () => {
     setPivotDate(new Date(pivotDate.getFullYear(), pivotDate.getMonth() - 1));
   }
+
   return (
       <div>
         <Header title={`${pivotDate.getFullYear()}년 ${pivotDate.getMonth() + 1}월`}
