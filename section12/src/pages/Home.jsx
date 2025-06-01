@@ -1,5 +1,5 @@
 // React
-import {useContext, useState} from 'react'
+import {useContext, useMemo, useState} from 'react'
 
 // Component
 import Header from "../components/Header.jsx";
@@ -38,7 +38,9 @@ const Home = () => {
   const data = useContext(DiaryStateContext);
   const [pivotDate, setPivotDate] = useState(new Date());
 
-  const monthlyData = getMonthlyData(pivotDate, data);
+  const monthlyData = useMemo(() => {
+    return getMonthlyData(pivotDate, data);
+  }, [pivotDate, data]);
 
   const onIncreaseMonth = () => {
     setPivotDate(new Date(pivotDate.getFullYear(), pivotDate.getMonth() + 1));
