@@ -1,6 +1,6 @@
 // React
 import {Route, Routes} from 'react-router-dom'
-import {createContext, useCallback, useMemo, useReducer, useRef} from 'react'
+import {createContext, useReducer, useRef} from 'react'
 
 // Pages
 import Home from "./pages/Home";
@@ -54,7 +54,7 @@ function App() {
   const idRef = useRef(4);
 
   // TODO : create
-  const onCreate = useCallback((createDate, emotionId, content) => {
+  const onCreate = (createDate, emotionId, content) => {
     dispatch({
       type: 'CREATE',
       data: {
@@ -64,10 +64,10 @@ function App() {
         content: content,
       },
     });
-  });
+  };
 
   // TODO : update
-  const onUpdate = useCallback((id, createDate, emotionId, content) => {
+  const onUpdate = (id, createDate, emotionId, content) => {
     dispatch({
       type: 'UPDATE',
       id: {
@@ -77,26 +77,22 @@ function App() {
         content: content,
       },
     });
-  });
+  };
 
   // TODO : delete
-  const onDelete = useCallback((id) => {
+  const onDelete = (id) => {
     dispatch({
       type: 'DELETE',
       data: {
         id: id
       },
     });
-  });
-
-  const memoizedDispatch = useMemo(() => {
-    return {onCreate, onUpdate, onDelete};
-  }, [onCreate, onDelete, onUpdate]);
+  };
 
   return (
       <>
         <DiaryStateContext.Provider value={data}>
-          <DiaryDispatchContext.Provider value={memoizedDispatch}>
+          <DiaryDispatchContext.Provider value={{onCreate, onUpdate, onDelete}}>
             <Routes>
               <Route path='/' element={<Home/>}></Route>
               <Route path='/new' element={<New/>}></Route>
