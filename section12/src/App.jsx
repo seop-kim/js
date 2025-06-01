@@ -1,6 +1,6 @@
 // React
 import {Route, Routes} from 'react-router-dom'
-import {createContext, useMemo, useReducer, useRef} from 'react'
+import {createContext, useCallback, useMemo, useReducer, useRef} from 'react'
 
 // Pages
 import Home from "./pages/Home";
@@ -54,7 +54,7 @@ function App() {
   const idRef = useRef(4);
 
   // TODO : create
-  const onCreate = (createDate, emotionId, content) => {
+  const onCreate = useCallback((createDate, emotionId, content) => {
     dispatch({
       type: 'CREATE',
       data: {
@@ -64,10 +64,10 @@ function App() {
         content: content,
       },
     });
-  };
+  });
 
   // TODO : update
-  const onUpdate = (id, createDate, emotionId, content) => {
+  const onUpdate = useCallback((id, createDate, emotionId, content) => {
     dispatch({
       type: 'UPDATE',
       id: {
@@ -77,17 +77,17 @@ function App() {
         content: content,
       },
     });
-  };
+  });
 
   // TODO : delete
-  const onDelete = (id) => {
+  const onDelete = useCallback((id) => {
     dispatch({
       type: 'DELETE',
       data: {
         id: id
       },
     });
-  };
+  });
 
   const memoizedDispatch = useMemo(() => {
     return {onCreate, onUpdate, onDelete};
