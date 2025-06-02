@@ -10,7 +10,7 @@ import DiaryList from "../components/DiaryList.jsx";
 import {DiaryStateContext} from "../App";
 
 // CSS
-import './Home.css'
+import './css/Home.css'
 
 const getMonthlyData = (pivotDate, data) => {
   const beginTime = new Date(

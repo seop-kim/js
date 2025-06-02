@@ -2,7 +2,7 @@
 import {Link} from 'react-router-dom'
 
 // CSS
-import './Notfound.css';
+import './css/Notfound.css';
 
 const Notfound = () => {
   return (

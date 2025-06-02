@@ -8,7 +8,7 @@ import Button from "../components/Button.jsx";
 import Viewer from "../components/Viewer.jsx";
 
 // CSS
-import './Diary.css'
+import './css/Diary.css'
 
 // Util
 import {getStringedDate} from "../util/get-stringed-date.js";

@@ -11,7 +11,7 @@ import Editor from "../components/Editor";
 import {DiaryDispatchContext} from "../App";
 
 // CSS
-import './New.css'
+import './css/New.css'
 
 const New = () => {
   const nav = useNavigate();
