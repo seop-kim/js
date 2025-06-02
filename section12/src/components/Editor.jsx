@@ -1,5 +1,5 @@
 // React
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 
 // Component
@@ -47,7 +47,7 @@ const getStringedDate = (targetDate) => {
   return `${year}-${month}-${date}`;
 };
 
-const Editor = ({onSubmit}) => {
+const Editor = ({initData, onSubmit}) => {
   const [input, setInput] = useState(inputDefault);
   const nav = useNavigate();
 
@@ -65,9 +65,21 @@ const Editor = ({onSubmit}) => {
       [name]: value,
     });
   };
+
   const onClickSubmitButton = () => {
     onSubmit(input);
-  }
+  };
+
+  useEffect(() => {
+    if (!initData) {
+      return;
+    }
+
+    setInput({
+      ...initData,
+      createdDate: new Date(Number(initData.createdDate)),
+    });
+  }, [initData])
 
   return (
       <div className='Editor'>
