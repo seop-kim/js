@@ -1,6 +1,7 @@
 // React
 import {useNavigate} from "react-router-dom"
 import {useContext} from "react";
+import usePageTitle from "../hooks/usePageTitle.jsx";
 
 // Component
 import Header from "../components/Header";
@@ -14,6 +15,8 @@ import {DiaryDispatchContext} from "../App";
 import './css/New.css'
 
 const New = () => {
+  usePageTitle('새 일기 쓰기');
+
   const nav = useNavigate();
   const {onCreate} = useContext(DiaryDispatchContext);
 
