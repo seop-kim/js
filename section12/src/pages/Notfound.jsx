@@ -1,10 +1,12 @@
 // React
 import {Link} from 'react-router-dom'
+import usePageTitle from "../hooks/usePageTitle.jsx";
 
 // CSS
 import './css/Notfound.css';
 
 const Notfound = () => {
+  usePageTitle('존재하지 않는 페이지');
   return (
       <div className="notfound-container">
         <h1 className="notfound-code">404</h1>

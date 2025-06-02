@@ -1,6 +1,6 @@
 // React
 import {Route, Routes} from 'react-router-dom'
-import {createContext, useReducer, useRef} from 'react'
+import {createContext, useEffect, useReducer, useRef, useState} from 'react'
 
 // Pages
 import Home from "./pages/Home";
@@ -12,47 +12,59 @@ import Notfound from "./pages/Notfound";
 // CSS
 import './App.css'
 
-const mockData = [
-  {
-    id: 1,
-    createdDate: new Date("2025-06-01").getTime(),
-    emotionId: 1,
-    content: '1번 일기 내용',
-  },
-  {
-    id: 2,
-    createdDate: new Date("2025-06-03").getTime(),
-    emotionId: 2,
-    content: '2번 일기 내용',
-  },
-  {
-    id: 3,
-    createdDate: new Date("2025-05-27").getTime(),
-    emotionId: 3,
-    content: '3번 일기 내용',
-  },
-]
-
 function reducer(state, action) {
-  if (action.type === 'CREATE') return [...state, action.data];
-  if (action.type === 'UPDATE') return state.map((item) => Number(item.id) === Number(action.data.id) ? action.data : item);
-  if (action.type === 'DELETE') return state.filter((item) => Number(item.id) !== Number(action.data.id));
-  return state;
+  let nextState;
+  if (action.type === 'INIT') return action.data;
+  if (action.type === 'CREATE') nextState = [...state, action.data];
+  if (action.type === 'UPDATE') nextState = state.map((item) => Number(item.id) === Number(action.data.id) ? action.data : item);
+  if (action.type === 'DELETE') nextState = state.filter((item) => Number(item.id) !== Number(action.data.id));
+  localStorage.setItem('diary', JSON.stringify(nextState));
+  return nextState;
 }
 
 export const DiaryStateContext = createContext();
 export const DiaryDispatchContext = createContext();
 
 function App() {
-  const [data, dispatch] = useReducer(reducer, mockData);
-  const idRef = useRef(4);
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, dispatch] = useReducer(reducer, []);
+  const idRef = useRef(0);
+
+  // LocalStorage
+  useEffect(() => {
+    const storedData = localStorage.getItem('diary');
+    if (!storedData) {
+      setIsLoading(false);
+      return;
+    }
+
+    const parsedData = JSON.parse(storedData);
+
+    if (!Array.isArray(parsedData)) {
+      setIsLoading(false);
+      return;
+    }
+
+    let maxId = 0;
+    parsedData.forEach((item) => {
+      if (Number(item.id) > maxId) maxId = Number(item.id);
+    })
+    idRef.current = maxId + 1;
+
+    dispatch({
+      type: 'INIT',
+      data: parsedData,
+    });
+
+    setIsLoading(false);
+  }, [])
 
   // func create
   const onCreate = (createDate, emotionId, content) => {
     dispatch({
       type: 'CREATE',
       data: {
-        id: idRef.current,
+        id: idRef.current++,
         createdDate: createDate,
         emotionId: emotionId,
         content: content,
@@ -82,6 +94,10 @@ function App() {
       },
     });
   };
+
+  if (isLoading) {
+    return <div>데이터 로딩중입니다...</div>
+  }
 
   return (
       <>

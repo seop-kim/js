@@ -24,10 +24,14 @@ npm install
 ### 3. 개발 서버 실행
 
 ```bash
-npm run start
+npm run dev
 ```
 
 이 명령어를 통해 로컬 개발 서버가 실행되고, 기본적으로 [http://localhost:5173](http://localhost:3000)에서 확인할 수 있습니다.
+
+### 4. 배포 링크
+
+[감정일기 바로가기](https://emotion-diary-8608fvl8l-seop-kims-projects.vercel.app/)
 
 ---
 Happy React Coding! 🚀
