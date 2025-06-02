@@ -7,7 +7,7 @@ import Button from "./Button";
 import DiaryItem from "./DiaryItem";
 
 // CSS
-import './DiaryList.css'
+import './css/DiaryList.css'
 
 const DiaryList = ({data}) => {
   const nav = useNavigate();

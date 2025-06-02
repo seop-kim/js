@@ -8,7 +8,7 @@ import Button from "./Button";
 import {getEmotionImage} from "../util/get-emotion-image.js";
 
 // CSS
-import './DiaryItem.css'
+import './css/DiaryItem.css'
 
 const DiaryItem = ({id, emotionId, createdDate, content}) => {
   const nav = useNavigate();

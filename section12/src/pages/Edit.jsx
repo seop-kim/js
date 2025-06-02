@@ -12,7 +12,7 @@ import Editor from "../components/Editor.jsx";
 import {DiaryDispatchContext} from "../App.jsx";
 
 // CSS
-import './Edit.css'
+import './css/Edit.css'
 
 const Edit = () => {
   const nav = useNavigate();

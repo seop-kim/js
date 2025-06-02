@@ -9,14 +9,8 @@ import Diary from "./pages/Diary";
 import Edit from "./pages/Edit";
 import Notfound from "./pages/Notfound";
 
-// Component
-// import Button from "./components/Button";
-// import Header from "./components/Header";
 // CSS
 import './App.css'
-
-// Image
-
 
 const mockData = [
   {

@@ -6,7 +6,7 @@ import {useNavigate} from "react-router-dom";
 import EmotionItem from "./EmotionItem";
 
 // CSS
-import './Editor.css'
+import './css/Editor.css'
 import Button from "./Button.jsx";
 
 // Util

@@ -1,5 +1,5 @@
 // CSS
-import './Viewer.css'
+import './css/Viewer.css'
 
 // Util
 import {getEmotionImage} from "../util/get-emotion-image.js";
